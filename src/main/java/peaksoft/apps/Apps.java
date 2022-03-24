@@ -193,22 +193,22 @@ public class Apps {
          */
         System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-* Pen class *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
         Pen pen1 = new Pen("Parker", 2500000, "Black", 20);
-        createTablePan(pen1);
+        createTablePen(pen1);
 
         Pen pen2 = new Pen("Waterman", 2000000, "Blue", 18);
-        createTablePan(pen2);
+        createTablePen(pen2);
 
         Pen pen3 = new Pen("Visconti", 2200000, "Black", 17);
-        createTablePan(pen3);
+        createTablePen(pen3);
 
         Pen pen4 = new Pen("Lamy", 2300000, "Red", 22);
-        createTablePan(pen4);
+        createTablePen(pen4);
 
         Pen pen5 = new Pen("Kaweco", 1800000, "Blue", 16);
-        createTablePan(pen5);
+        createTablePen(pen5);
 
         Pen pen6 = new Pen("Relikan", 1600000, "Black", 12);
-        createTablePan(pen6);
+        createTablePen(pen6);
 
         System.out.println("Get all pens:");
         getAllPens();
@@ -286,7 +286,7 @@ public class Apps {
         System.out.println("Removed table phones:");
         deleteAllPhones();
     }
-    
+
     /**
      *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Apricot class *-*-*-*-*-*--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
      */
@@ -749,7 +749,7 @@ public class Apps {
      *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Pen class *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
      */
 
-    public static int createTablePan(Pen pen) {
+    public static int createTablePen(Pen pen) {
         try (Session session = HibernateConfigs.getSessionFactory().openSession()) {
             session.beginTransaction();
             session.save(pen);
