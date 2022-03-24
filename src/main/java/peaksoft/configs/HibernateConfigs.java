@@ -20,12 +20,15 @@ public class HibernateConfigs {
                 Properties properties = new Properties();
                 properties.put(Environment.DRIVER, "org.postgresql.Driver");
                 properties.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQL9Dialect");
-                properties.put(Environment.URL, "jdbc:postgresql://localhost:5432/postgres");
+                properties.put(Environment.URL, "jdbc:postgresql://localhost:5432/Hibernate");
                 properties.put(Environment.USER, "postgres");
                 properties.put(Environment.PASS, "Tvrandot");
                 properties.put(Environment.HBM2DDL_AUTO, "create");
                 properties.put(Environment.SHOW_SQL, "ture");
                 configuration.setProperties(properties);
+                configuration.addAnnotatedClass(Car.class);
+                configuration.addAnnotatedClass(Student.class);
+                configuration.addAnnotatedClass(User.class);
                 configuration.addAnnotatedClass(Apricot.class);
                 configuration.addAnnotatedClass(Bank.class);
                 configuration.addAnnotatedClass(City.class);

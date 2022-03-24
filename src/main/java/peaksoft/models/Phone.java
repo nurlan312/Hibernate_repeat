@@ -1,7 +1,6 @@
 package peaksoft.models;
 
 import javax.persistence.*;
-import java.sql.DataTruncation;
 
 @Entity
 @Table(name = "phones")

@@ -3,7 +3,7 @@ package peaksoft.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users3")
+@Table(name = "users")
 public class User {
 
     @Id

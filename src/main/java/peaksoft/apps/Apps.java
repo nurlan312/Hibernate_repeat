@@ -11,7 +11,112 @@ public class Apps {
 
     public static void main(String[] args) {
 
+        /**
+         *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* User class *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+         */
         HibernateConfigs.getSessionFactory();
+        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* User class *-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
+        User user1 = new User("Erkin", 65, 180, "Black");
+        createTableUser(user1);
+
+        User user2 = new User("Kanat", 75, 190, "Black");
+        createTableUser(user2);
+
+        User user3 = new User("Omur", 55, 160, "White");
+        createTableUser(user3);
+
+        User user4 = new User("Seit", 75, 170, "Silver");
+        createTableUser(user4);
+
+        System.out.println("Get all users: ");
+        getAllUsers();
+
+        System.out.println("Updated user: ");
+        updateUser(1, "Erlan", 120, 190, "Black");
+
+        System.out.println("Get by id: ");
+        getByIdUser(2);
+
+        System.out.println("Deleted by id: ");
+        deleteByIdUser(4);
+
+        System.out.println("Get all users: ");
+        getAllUsers();
+
+        System.out.println("Deleted all users");
+        deleteAllUsers();
+        System.out.println("");
+
+        /**
+         *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Student class *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+         */
+        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Student class *-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
+        Student student1 = new Student("Ulukmyrza", "C#", 29, "ulukmyrza@gmail.com");
+        createTableStudent(student1);
+
+        Student student2 = new Student("Venera", "C++", 22, "venera@gmail.com");
+        createTableStudent(student2);
+
+        Student student3 = new Student("Mirbek", "Delphi", 37, "mirbek@gmail.com");
+        createTableStudent(student3);
+
+        Student student4 = new Student("Meerim", "Swift", 23, "meerim@gmail.com");
+        createTableStudent(student4);
+
+        System.out.println("Get all students:");
+        getAllStudents();
+
+        System.out.println("Update student:");
+        updateStudent(1, "Shergazy", "Python", 23, "shergazy@gmail.com");
+
+        System.out.println("Get by id student:");
+        getByIdStudent(2);
+
+        System.out.println("Delete by id:");
+        deleteByIdStudent(3);
+
+        System.out.println("Get all students:");
+        getAllStudents();
+
+        System.out.println("Successfully removed students:");
+        deleteAllStudent();
+        System.out.println("");
+
+        /**
+         *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Car class *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+         */
+        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Car class *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
+        Car car1 = new Car("Audi", "White", 1.8, 220);
+        createTableCar(car1);
+
+        Car car2 = new Car("Porsche", "Black", 5.2, 650);
+        createTableCar(car2);
+
+        Car car3 = new Car("Mercedes-Benz", "Silver", 4.6, 420);
+        createTableCar(car3);
+
+        Car car4 = new Car("Tesla", "Blue", 5.6, 750);
+        createTableCar(car4);
+
+        System.out.println("Get all cars: ");
+        getAllCars();
+
+        System.out.println("Update car: ");
+        updateCar(8, "Toyota", "Green", 3.2, 360);
+
+        System.out.println("Get by id: ");
+        getByIdCar(5);
+
+        System.out.println("Deleted by id: ");
+        deleteByIdCar(6);
+
+        System.out.println("Get all cars: ");
+        getAllCars();
+
+        System.out.println("Deleted all cars: ");
+        deleteAllCars();
+        System.out.println("");
+
         /**
          *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Apricot class *-*-*-*-*-*--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
          */
@@ -67,18 +172,18 @@ public class Apps {
         getAllBanks();
 
         System.out.println("Get by id:");
-        getByIdBank(3);
+        getByIdBank(10);
 
         System.out.println("Updated bank:");
-        updateBank(3, "KyrgyzBanky", "Kubanych Bokontaev", "Som", "Kyrgyzstan");
+        updateBank(9, "KyrgyzBanky", "Kubanych Bokontaev", "Som", "Kyrgyzstan");
 
         System.out.println("Deleted by id:");
-        deleteByIdBank(4);
+        deleteByIdBank(12);
 
         System.out.println("Get all banks:");
         getAllBanks();
 
-        System.out.println("Removed table apricots:");
+        System.out.println("Removed table banks:");
         deleteAllBanks();
         System.out.println("");
 
@@ -926,6 +1031,271 @@ public class Apps {
             session.getTransaction().commit();
             session.close();
             System.out.println("Successfully removed phones");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
+     *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Car class *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+     */
+    public static int createTableCar(Car car) {
+        try (Session session = HibernateConfigs.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            session.save(car);
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Added successfully: " + car);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return car.getId();
+    }
+
+    public static List<Car> getAllCars() {
+        List<Car> carList = null;
+        try (Session session = HibernateConfigs.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            carList = session.createQuery("from Car").getResultList();
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Number " + carList.size() + " car");
+            System.out.println(carList);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return carList;
+    }
+
+    public static void updateCar(int id, String mark, String color, double capacity, int speed) {
+        try (Session session = HibernateConfigs.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            Car car = session.get(Car.class, id);
+            car.setMark(mark);
+            car.setColor(color);
+            car.setCapacity(capacity);
+            car.setSpeed(speed);
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Successfully updated: " + car);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static Car getByIdCar(int id) {
+        Car car = null;
+        try (Session session = HibernateConfigs.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            car = session.get(Car.class, id);
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Get by id: " + car);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return car;
+    }
+
+    public static void deleteByIdCar(int id) {
+        try (Session session = HibernateConfigs.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            Car car = session.get(Car.class, id);
+            session.delete(car);
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Successfully deleted by id: " + car);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void deleteAllCars() {
+        try (Session session = HibernateConfigs.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            Query hql = session.createQuery("delete from Car");
+            hql.executeUpdate();
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Table deleted successfully");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
+     *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Student class *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+     */
+    public static int createTableStudent(Student student) {
+        try {
+            Session session = HibernateConfigs.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.save(student);
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Added successfully" + student);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return student.getId();
+    }
+
+    public static void updateStudent(int id, String name, String course, int age, String email) {
+        try (Session session = HibernateConfigs.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            Student student = session.get(Student.class, id);
+            student.setName(name);
+            student.setCourse(course);
+            student.setAge(age);
+            student.setEmail(email);
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Successfully updated: " + name);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static List<Student> getAllStudents() {
+        List<Student> studentList = null;
+        try {
+            Session session = HibernateConfigs.getSessionFactory().openSession();
+            session.beginTransaction();
+            studentList = session.createQuery("from Student").getResultList();
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Finded " + studentList.size() + " student");
+            System.out.println(studentList);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return studentList;
+    }
+
+    public static Student getByIdStudent(int id) {
+        Student student = null;
+        try {
+            Session session = HibernateConfigs.getSessionFactory().openSession();
+            session.beginTransaction();
+            student = session.get(Student.class, id);
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Get by id: " + student);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return student;
+    }
+
+    public static void deleteByIdStudent(int id) {
+        try (Session session = HibernateConfigs.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            Student student = session.get(Student.class, id);
+            session.delete(student);
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Successfully deleted: " + student);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void deleteAllStudent() {
+        try (Session session = HibernateConfigs.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            Query hql = session.createQuery("delete from Student");
+            hql.executeUpdate();
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Successfully deleted all data in students");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* User class *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+     */
+    public static int createTableUser(User user) {
+        try {
+            Session session = HibernateConfigs.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.save(user);
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Added successfully: " + user);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return user.getId();
+    }
+
+    public static List<User> getAllUsers() {
+        List<User> userList = null;
+        try (Session session = HibernateConfigs.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            userList = session.createQuery("from User").getResultList();
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Number " + userList.size() + " users.");
+            System.out.println(userList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return userList;
+    }
+
+    public static void updateUser(int id, String user_name, int weight, int height, String hairColor) {
+        try (Session session = HibernateConfigs.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            User user = session.get(User.class, id);
+            user.setName(user_name);
+            user.setWeight(weight);
+            user.setHeight(height);
+            user.setHairColor(hairColor);
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Successfully update: " + user_name);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static User getByIdUser(int id) {
+        User user = null;
+        try (Session session = HibernateConfigs.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            user = session.get(User.class, id);
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Get by id: " + user);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return user;
+    }
+
+    public static void deleteByIdUser(int id) {
+        try (Session session = HibernateConfigs.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            User user = session.get(User.class, id);
+            session.delete(user);
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Successfully deleted: " + user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteAllUsers() {
+        try (Session session = HibernateConfigs.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            Query hql = session.createQuery("delete from User");
+            hql.executeUpdate();
+            session.getTransaction().commit();
+            session.close();
+            System.out.println("Successfully deleted all data in users");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
